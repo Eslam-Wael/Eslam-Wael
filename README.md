@@ -53,6 +53,8 @@ My focus is not only on building models, but on understanding **why a model work
   &nbsp;&nbsp;&nbsp;
   <a href="https://www.linkedin.com/in/eslam-wael-a489b1400/?isSelfProfile=true">
     <img src="https://skillicons.dev/icons?i=linkedin" height="45" />
+  <a href="eslamhaggag932@gmail.com">
+    <img src="https://skillicons.dev/icons?i=gmail" height="45" />
   </a>
 </p>
 
