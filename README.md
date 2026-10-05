@@ -65,7 +65,7 @@ Data Cleaning → EDA → Feature Engineering → Modeling → Evaluation → In
 
 ---
 
-<h2 align="center">💻 Tech Stack</h2>
+<h2 align="center"> Tech Stack</h2>
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=python,postgres,mysql,git,github,vscode,jupyter" />
@@ -87,9 +87,9 @@ Data Cleaning → EDA → Feature Engineering → Modeling → Evaluation → In
 
 ---
 
-<h2 align="center">📊 Featured Projects</h2>
+<h2 align="center"> Featured Projects</h2>
 
-<h3>📊 Customer Churn Prediction & Segmentation</h3>
+<h3> Customer Churn Prediction & Segmentation</h3>
 
 <p>
 An end-to-end machine learning project focused on understanding customer behavior, identifying churn patterns, and discovering meaningful customer segments.
@@ -106,7 +106,7 @@ Data Preparation → Feature Engineering → Feature Selection → Machine Learn
 
 ---
 
-<h3>⚡ Energy Customer Churn Analysis</h3>
+<h3> Energy Customer Churn Analysis</h3>
 
 <p>
 A business-oriented data analysis project investigating customer churn behavior and developing hypotheses around potential churn drivers.
@@ -122,7 +122,7 @@ A business-oriented data analysis project investigating customer churn behavior 
 
 ---
 
-<h3>🤖 AI Automation</h3>
+<h3> AI Automation</h3>
 
 <p>
 Exploring practical AI-powered workflows that combine intelligent models, APIs, and automation to transform repetitive processes into useful systems.
