@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="./assets/banner.png" alt="Eslam-Wael Banner" width="100%">
+  <img src="./assets/banner.png.webp" alt="Eslam-Wael Banner" width="100%">
 </p>
 
 <h1 align="center">Hi 👋, I'm Eslam</h1>
@@ -19,7 +19,7 @@
 
 <h2 align="center"> About Me</h2>
 
-<img align="right" src="./assets/data-illustration.png" width="280" alt="Data Science Illustration"/>
+<img align="right" src="./assets/data-illustration.png.jpg" width="280" alt="Data Science Illustration"/>
 
 I'm **Eslam**, focused on **Data Science, Machine Learning, and AI Automation**.
 
