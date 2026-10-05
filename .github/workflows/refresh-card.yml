@@ -1,48 +1,86 @@
-name: Refresh gh-ascii card
+name: Generate ASCII Profile
 
 on:
-  schedule:
-    - cron: "17 6 * * *"
   workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 
 permissions:
   contents: write
 
-concurrency:
-  group: refresh-gh-ascii-card
-  cancel-in-progress: true
-
 jobs:
-  refresh:
+  generate:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v7
-
-      - name: Download both themes
+      - name: Generate ASCII profile SVGs
         env:
-          HANDLE: Eslam-Wael
-          GH_ASCII_URL: https://gh.crafter.run
-
+          USERNAME: Eslam-Wael
         run: |
-          curl -fsSL --retry 3 --retry-delay 5 \
-            "$GH_ASCII_URL/$HANDLE?theme=dark" \
-            -o dark_mode.svg
+          mkdir -p dist
 
-          curl -fsSL --retry 3 --retry-delay 5 \
-            "$GH_ASCII_URL/$HANDLE?theme=light" \
-            -o light_mode.svg
+          curl -L "https://gh.crafter.run/?u=${USERNAME}" \
+            -o dist/dark_mode.svg
 
-      - name: Commit only if the card changed
+          curl -L "https://gh.crafter.run/?u=${USERNAME}&theme=light" \
+            -o dist/light_mode.svg
+
+      - name: Inline external images
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python - <<'EOF'
+          import base64
+          import re
+          import urllib.request
+          from pathlib import Path
 
-          git add dark_mode.svg light_mode.svg
+          for path in Path("dist").glob("*.svg"):
+              svg = path.read_text(encoding="utf-8")
 
-          if git diff --cached --quiet; then
-            echo "Card unchanged — nothing to commit."
-          else
-            git commit -m "chore: refresh gh-ascii card"
-            git push
-          fi
+              def inline_image(match):
+                  attr = match.group(1)
+                  url = match.group(2)
+
+                  try:
+                      with urllib.request.urlopen(url, timeout=15) as response:
+                          data = response.read()
+
+                      low = url.lower()
+
+                      if low.endswith(".gif"):
+                          mime = "image/gif"
+                      elif low.endswith((".jpg", ".jpeg")):
+                          mime = "image/jpeg"
+                      elif low.endswith(".png"):
+                          mime = "image/png"
+                      elif low.endswith(".svg"):
+                          mime = "image/svg+xml"
+                      else:
+                          return match.group(0)
+
+                      b64 = base64.b64encode(data).decode()
+
+                      return f'{attr}="data:{mime};base64,{b64}"'
+
+                  except Exception as e:
+                      print(f"WARN: could not inline {url}: {e}")
+                      return match.group(0)
+
+              svg = re.sub(
+                  r'(xlink:href|href)="(https?://[^"]+)"',
+                  inline_image,
+                  svg
+              )
+
+              path.write_text(svg, encoding="utf-8")
+
+              print(f"Processed {path} ({len(svg)} bytes)")
+          EOF
+
+      - name: Publish SVGs
+        uses: crazy-max/ghaction-github-pages@v5
+        with:
+          target_branch: output
+          build_dir: dist
+          keep_history: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
