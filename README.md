@@ -51,7 +51,7 @@ My focus is not only on building models, but on understanding **why a model work
     <img src="https://skillicons.dev/icons?i=github" height="45" />
   </a>
   &nbsp;&nbsp;&nbsp;
-  <a href="YOUR_LINKEDIN_URL">
+  <a href="https://www.linkedin.com/in/eslam-wael-a489b1400/?isSelfProfile=true">
     <img src="https://skillicons.dev/icons?i=linkedin" height="45" />
   </a>
 </p>
@@ -157,23 +157,6 @@ Continuously building data-driven projects to strengthen my skills in machine le
 
 ---
 
-<h2 align="center">⌘ Commit Activity</h2>
-
-<picture>
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/Eslam-Wael/Eslam-Wael/output/pacman-contribution-graph-dark.svg">
-
-  <source
-    media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/Eslam-Wael/Eslam-Wael/output/pacman-contribution-graph.svg">
-
-  <img
-    src="https://raw.githubusercontent.com/Eslam-Wael/Eslam-Wael/output/pacman-contribution-graph-dark.svg"
-    alt="GitHub Contribution Graph">
-</picture>
-
----
 
 <h2 align="center">⌘ Philosophy</h2>
 
