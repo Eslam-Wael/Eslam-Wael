@@ -1,4 +1,4 @@
-```html
+
 <p align="center">
   <img src="./assets/banner.png" alt="Eslam-Wael Banner" width="100%">
 </p>
@@ -190,5 +190,5 @@ Continuously building data-driven projects to strengthen my skills in machine le
 <p align="center">
   Data • Intelligence • Automation
 </p>
-```
+
 
